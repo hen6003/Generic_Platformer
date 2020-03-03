@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/font_title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/button.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/tips.tres" type="DynamicFont" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CanvasLayer
+
+onready var lab = get_node(\"Label\")
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+	globals.time = globals.time + 1
+	lab.set_text(\"Time = \" + str(globals.time - 1) + \"s\")
+
+	if globals.high_score > globals.time - 1:
+		globals.high_score = globals.time
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"exit\"):
+		get_tree().change_scene(\"res://src/Levels/LevelTitle.tscn\")
+
+func _on_Button_pressed() -> void:
+	get_tree().change_scene(\"res://src/Levels/LevelTitle.tscn\")
+"
+
+[node name="LevelEnd" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = SubResource( 1 )
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_fonts/font = ExtResource( 1 )
+text = "Time = 0s"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -72.5
+margin_top = 64.0
+margin_right = 72.5
+margin_bottom = 154.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 2 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+
+[node name="back_tip" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 90.0
+margin_top = 89.0
+margin_right = 306.0
+margin_bottom = 145.0
+custom_fonts/font = ExtResource( 3 )
+text = "Or Press ESC"
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_Button_pressed"]

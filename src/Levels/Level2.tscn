@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Levels/Level3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://assets/cave.png" type="Texture" id=4]
+
+[node name="Level2" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [ 2300.0 ]
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+position = Vector2( 72, 889 )
+end_of_level = 2300.0
+next_scene = ExtResource( 2 )
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_right = 2300
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+collision_layer = 4
+format = 1
+tile_data = PoolIntArray( 786451, 9, 0, 786452, 10, 0, 786453, 11, 0, 851987, 3, 0, 851988, 16, 0, 851989, 8, 0, 852000, 9, 0, 852001, 12, 0, 852002, 1, 0, 852003, 1, 0, 917504, 1, 0, 917505, 1, 0, 917506, 13, 0, 917507, 10, 0, 917508, 11, 0, 917523, 3, 0, 917524, 5, 0, 917536, 3, 0, 917537, 4, 0, 917538, 4, 0, 917539, 4, 0, 983040, 4, 0, 983041, 4, 0, 983042, 4, 0, 983043, 4, 0, 983044, 5, 0, 983054, 9, 0, 983055, 10, 0, 983056, 11, 0, 983059, 3, 0, 983060, 5, 0, 983072, 3, 0, 983073, 4, 0, 983074, 4, 0, 983075, 4, 0, 1048576, 4, 0, 1048577, 4, 0, 1048578, 4, 0, 1048579, 4, 0, 1048580, 5, 0, 1048590, 3, 0, 1048591, 4, 0, 1048592, 5, 0, 1048595, 3, 0, 1048596, 5, 0, 1048608, 3, 0, 1048609, 4, 0, 1048610, 4, 0, 1048611, 4, 0, 1114144, 3, 0, 1179680, 3, 0, 1245209, 10, 0, 1245210, 10, 0, 1245211, 10, 0, 1245212, 10, 0, 1245213, 10, 0, 1245214, 10, 0, 1245215, 10, 0, 1245216, 19, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+stretch_mode = 2
+
+[editable path="Player"]

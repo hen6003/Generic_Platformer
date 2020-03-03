@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Objects/speed_up.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Levels/Level2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://assets/rain.png" type="Texture" id=5]
+
+[node name="Level1" type="Node2D"]
+
+[node name="speed_up" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1666, 476 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 892 )
+next_scene = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+collision_layer = 4
+format = 1
+tile_data = PoolIntArray( 27, 3, 0, 28, 5, 0, 65563, 3, 0, 65564, 5, 0, 131099, 3, 0, 131100, 5, 0, 196635, 3, 0, 196636, 5, 0, 262171, 3, 0, 262172, 5, 0, 327707, 3, 0, 327708, 5, 0, 393243, 3, 0, 393244, 5, 0, 458779, 3, 0, 458780, 5, 0, 524313, 9, 0, 524314, 10, 0, 524315, 19, 0, 524316, 5, 0, 589849, 6, 0, 589850, 7, 0, 589851, 7, 0, 589852, 8, 0, 720916, 21, 0, 720917, 2, 0, 786451, 21, 0, 786453, 5, 0, 851986, 21, 0, 851988, 4, 0, 851989, 14, 0, 851990, 1, 0, 851991, 1, 0, 851992, 2, 0, 851997, 0, 0, 851998, 1, 0, 851999, 1, 0, 917504, 1, 0, 917505, 1, 0, 917506, 1, 0, 917507, 1, 0, 917508, 1, 0, 917509, 1, 0, 917510, 1, 0, 917511, 2, 0, 917519, 0, 0, 917520, 1, 0, 917521, 1, 0, 917523, 4, 0, 917524, 4, 0, 917525, 4, 0, 917526, 4, 0, 917527, 4, 0, 917528, 5, 0, 917533, 3, 0, 917534, 16, 0, 917535, 7, 0, 983040, 4, 0, 983041, 16, 0, 983042, 7, 0, 983043, 7, 0, 983044, 7, 0, 983045, 7, 0, 983046, 17, 0, 983047, 5, 0, 983055, 3, 0, 983056, 4, 0, 983057, 4, 0, 983058, 4, 0, 983059, 4, 0, 983060, 4, 0, 983061, 4, 0, 983062, 4, 0, 983063, 4, 0, 983064, 5, 0, 983069, 3, 0, 983070, 5, 0, 1048576, 4, 0, 1048577, 5, 0, 1048582, 3, 0, 1048583, 5, 0, 1048591, 3, 0, 1048592, 4, 0, 1048593, 4, 0, 1048594, 4, 0, 1048595, 4, 0, 1048596, 4, 0, 1048597, 4, 0, 1048598, 4, 0, 1048599, 4, 0, 1048600, 5, 0, 1048605, 3, 0, 1048606, 5, 0, 1114136, 5, 0, 1114141, 3, 0, 1179672, 5, 0, 1179677, 3, 0, 1245208, 5, 0, 1245213, 3, 0, 1310744, 18, 0, 1310745, 10, 0, 1310746, 10, 0, 1310747, 10, 0, 1310748, 10, 0, 1310749, 19, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+stretch_mode = 2

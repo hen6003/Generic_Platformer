@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Objects/Timer_View.gd" type="Script" id=1]
+[ext_resource path="res://assets/button.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/timer.png" type="Texture" id=3]
+
+[node name="Timer_View" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 30.0
+margin_top = -46.0
+margin_right = 90.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.796078, 0.858824, 0.988235, 1 )
+custom_colors/font_color_shadow = Color( 0.133333, 0.12549, 0.203922, 1 )
+text = "0s"
+
+[node name="coin" type="Sprite" parent="."]
+texture = ExtResource( 3 )

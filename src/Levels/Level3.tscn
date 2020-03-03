@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Levels/Level4.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://src/Objects/speed_up.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sky.png" type="Texture" id=5]
+
+[node name="Level3" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [ 2300.0 ]
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+position = Vector2( 72, 889 )
+end_of_level = 2300.0
+next_scene = ExtResource( 2 )
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_right = 2300
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+collision_layer = 4
+format = 1
+tile_data = PoolIntArray( 393245, 21, 0, 393246, 20, 0, 458780, 21, 0, 458783, 20, 0, 524315, 21, 0, 524317, 4, 0, 524318, 4, 0, 524320, 20, 0, 589850, 21, 0, 589852, 4, 0, 589853, 4, 0, 589854, 4, 0, 589855, 4, 0, 589857, 20, 0, 655385, 0, 0, 655387, 4, 0, 655388, 4, 0, 655389, 4, 0, 655390, 4, 0, 655391, 4, 0, 655392, 4, 0, 655394, 1, 0, 655395, 1, 0, 720921, 6, 0, 720922, 7, 0, 720923, 7, 0, 720924, 7, 0, 720925, 7, 0, 720926, 7, 0, 720927, 7, 0, 720928, 7, 0, 720929, 17, 0, 720930, 4, 0, 720931, 4, 0, 786465, 6, 0, 786466, 17, 0, 786467, 4, 0, 851982, 21, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 2, 0, 852002, 6, 0, 852003, 17, 0, 917504, 1, 0, 917505, 1, 0, 917506, 1, 0, 917507, 1, 0, 917508, 1, 0, 917509, 2, 0, 917517, 21, 0, 917519, 4, 0, 917520, 4, 0, 917521, 4, 0, 917522, 4, 0, 917523, 4, 0, 917524, 5, 0, 917539, 3, 0, 983040, 4, 0, 983041, 4, 0, 983042, 16, 0, 983043, 7, 0, 983044, 7, 0, 983045, 8, 0, 983052, 21, 0, 983054, 4, 0, 983055, 16, 0, 983056, 7, 0, 983057, 7, 0, 983058, 17, 0, 983059, 4, 0, 983060, 5, 0, 983075, 3, 0, 1048576, 4, 0, 1048577, 4, 0, 1048578, 5, 0, 1048587, 21, 0, 1048589, 4, 0, 1048590, 4, 0, 1048591, 5, 0, 1048594, 3, 0, 1048595, 4, 0, 1048596, 14, 0, 1048597, 1, 0, 1048598, 2, 0, 1048611, 3, 0, 1114134, 5, 0, 1114147, 3, 0, 1179670, 5, 0, 1179683, 3, 0, 1245206, 18, 0, 1245207, 10, 0, 1245208, 10, 0, 1245209, 10, 0, 1245210, 10, 0, 1245211, 10, 0, 1245212, 10, 0, 1245213, 10, 0, 1245214, 10, 0, 1245215, 10, 0, 1245216, 10, 0, 1245217, 10, 0, 1245218, 10, 0, 1245219, 19, 0 )
+
+[node name="speed_up" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1400, 983 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+
+[editable path="Player"]
